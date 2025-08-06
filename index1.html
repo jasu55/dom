@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dom</title>
   </head>
   <body>
     <ul></ul>
     <script>
-      let listData = [];
       const body = document.querySelector("body");
       const container = document.createElement("div");
       const input = document.createElement("input");
@@ -17,20 +16,31 @@
 
       button.innerText = "click me";
 
+      let listData = [];
+
       function printInputValue(value) {
         listData.push(value);
       }
 
       function render() {
         ul.innerHTML = "";
-        listData.map((element) => {
+        listData.map((element, index) => {
           const li = document.createElement("li");
-          const buttonx = document.createElement("button");
+          const removeBtn = document.createElement("button");
 
           li.innerText = element;
-          buttonx.innerText = "x";
-          li.appendchild(buttonx);
+          removeBtn.innerText = "x";
+
+          removeBtn.addEventListener("click", () => {
+            const newListData = listData.filter((el, i) => {
+              return index !== i;
+            });
+            listData = newListData;
+            render();
+          });
+
           ul.appendChild(li);
+          li.appendChild(removeBtn);
         });
       }
 
