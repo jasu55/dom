@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul></ul>
+    <script>
+      let listData = [];
+      const body = document.querySelector("body");
+      const container = document.createElement("div");
+      const input = document.createElement("input");
+      const button = document.createElement("button");
+      const ul = document.querySelector("ul");
+
+      button.innerText = "click me";
+
+      function printInputValue(value) {
+        listData.push(value);
+      }
+
+      function render() {
+        ul.innerHTML = "";
+        listData.map((element) => {
+          const li = document.createElement("li");
+          const buttonx = document.createElement("button");
+
+          li.innerText = element;
+          buttonx.innerText = "x";
+          li.appendchild(buttonx);
+          ul.appendChild(li);
+        });
+      }
+
+      button.addEventListener("click", () => {
+        printInputValue(input.value);
+        render();
+      });
+
+      container.appendChild(input);
+      container.appendChild(button);
+      body.appendChild(container);
+    </script>
+  </body>
+</html>
