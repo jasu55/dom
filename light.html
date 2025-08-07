@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>light</title>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector("body");
+      const imgTag = document.createElement("img");
+      const button = document.createElement("button");
+
+      imgTag.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+      button.innerText = "off";
+
+      let isOn = false;
+
+      button.addEventListener("click", () => {
+        isOn = !isOn;
+        button.innerText = isOn ? "on" : "off";
+
+        if (isOn) {
+          imgTag.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+        } else {
+          imgTag.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+        }
+
+        // if (b === true) {
+        //   imgTag.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+        //   b = false;
+        //   button.innerText = "on";
+        // } else {
+        //   imgTag.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+        //   b = true;
+        //   button.innerText = "off";
+        // }
+      });
+
+      body.appendChild(imgTag);
+      body.appendChild(button);
+    </script>
+  </body>
+</html>

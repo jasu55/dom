@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>randomColor</title>
+    <style>
+      .divStyle {
+        background-color: aqua;
+        width: 50px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector("body");
+      const div = document.createElement("div");
+      const button = document.createElement("button");
+
+      button.innerText = "change color";
+
+      div.classList.add("divStyle");
+
+      const namedColors = [
+        "#FF6633",
+        "#FFB399",
+        "#FF33FF",
+        "#FFFF99",
+        "#00B3E6",
+        "#E6B333",
+        "#3366E6",
+        "#999966",
+        "#809980",
+        "#E6FF80",
+        "#1AFF33",
+        "#999933",
+        "#FF3380",
+        "#CCCC00",
+        "#66E64D",
+        "#4D80CC",
+        "#FF4D4D",
+        "#99E6E6",
+        "#6666FF",
+      ];
+
+      button.addEventListener("click", () => {
+        div.style.backgroundColor = namedColors[Math.floor(Math.random() * 10)];
+      });
+
+      body.appendChild(div);
+      body.appendChild(button);
+    </script>
+  </body>
+</html>
