@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2box</title>
+    <style>
+      .containerStyle {
+        width: 500px;
+        height: 200px;
+        display: flex;
+      }
+      .box1Style {
+        height: 100%;
+        background-color: black;
+      }
+      .box2Style {
+        height: 100%;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const body = document.querySelector("body");
+      const container = document.createElement("div");
+      const box1 = document.createElement("div");
+      const box2 = document.createElement("div");
+
+      box1.style.width = "50%";
+      box2.style.width = "50%";
+      //   parseInt(computedstyle(red).width)
+      container.classList.add("containerStyle");
+      box1.classList.add("box1Style");
+      box2.classList.add("box2Style");
+
+      box1.addEventListener("click", () => {
+        console.log(parseInt(box1.style.width));
+        box1.style.width = parseInt(box1.style.width) + 3 + "%";
+        box2.style.width = parseInt(box2.style.width) - 3 + "%";
+      });
+
+      box2.addEventListener("click", () => {
+        box1.style.width = parseInt(box1.style.width) - 3 + "%";
+        box2.style.width = parseInt(box2.style.width) + 3 + "%";
+      });
+
+      document.addEventListener("keydown", function (event) {
+        console.log("Key pressed:", event.key);
+        console.log("Key code:", event.code);
+
+        // console.log(event.key.length);
+        if (event.key === "Enter") {
+          // console.log("working");
+          box1.style.width = parseInt(box1.style.width) + 3 + "%";
+          box2.style.width = parseInt(box2.style.width) - 3 + "%";
+        }
+        if (event.key == " ") {
+          //   console.log("working");
+          box1.style.width = parseInt(box1.style.width) - 3 + "%";
+          box2.style.width = parseInt(box2.style.width) + 3 + "%";
+        }
+      });
+
+      body.appendChild(container);
+      container.appendChild(box1);
+      container.appendChild(box2);
+    </script>
+  </body>
+</html>

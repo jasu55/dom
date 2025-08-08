@@ -45,12 +45,24 @@
           p.innerText = element;
           removeBtn.innerText = "x";
 
-          img.addEventListener("click", () => {
-            const input = document.createElement("input");
-            li.appendChild(input);
-            input.defaultValue = p.innerText;
-            p.remove();
+          let isEdit = true;
 
+          img.addEventListener("click", () => {
+            const a = document.createElement("input");
+            li.appendChild(input);
+
+            if (isEdit) {
+              a.defaultValue = p.innerText;
+              // p.remove();
+            } else {
+              const p = document.createElement("p");
+              li.appendChild("p");
+              p.innerText = a.value;
+              console.log(a);
+              // a.remove();
+            }
+
+            isEdit = !isEdit;
             // li.innerText = "";
             // li.appendChild(input);
             // render();
