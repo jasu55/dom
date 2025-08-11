@@ -22,8 +22,6 @@ function updateCountdown() {
   countdownEl.innerHTML = `${minutes}:${seconds}`;
   if (isRunning) {
     time--;
-  } else {
-    playButton.innerHTML = "&#9654"; // Change to pause icon
   }
   if (time === 0) {
     isRunning = false;
@@ -32,17 +30,21 @@ function updateCountdown() {
 
 playButton.addEventListener("click", () => {
   isRunning = !isRunning;
+  const interval = setInterval(updateCountdown, 1000);
 
-  setInterval(updateCountdown, 1000);
-  playButtonContainer.appendChild(resetButton);
-  playButton.innerHTML = "&#10074;&#10074;"; // Change to pause icon
+  if (isRunning) {
+    playButtonContainer.appendChild(resetButton);
+    playButton.innerHTML = "&#10074;&#10074;"; // Change to pause icon
+  } else {
+    clearInterval(interval);
+    playButton.innerHTML = "&#9654"; // Change to pause icon
+  }
 });
 
 resetButton.addEventListener("click", () => {
   isRunning = false;
 
   time = startingMinutes * 60;
-  updateCountdown();
 });
 
 add30secButton.addEventListener("click", () => {
