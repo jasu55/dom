@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>easyDomTasks</title>
+  </head>
+  <body>
+    <!-- task1 change text-->
+
+    <p id="p1">1</p>
+    <button onclick="p1.innerText='Hi there'">Change to 'Hi there'</button>
+
+    <!-- task2 change background color -->
+
+    <div
+      style="width: 100px; height: 100px; background-color: blue"
+      id="div1"
+    ></div>
+    <button id="button2">change color</button>
+
+    <!-- task3 add list item-->
+
+    <ul id="ul1">
+      <li>apple</li>
+    </ul>
+    <button id="button3">add 'Banana'</button>
+
+    <!-- task4 hide & show element-->
+
+    <p id="p4" style="display: block">you can hide and show me</p>
+    <button id="button4">Hide/Show</button>
+
+    <!-- task5 count button clicks -->
+
+    <p id="p5">clicked 0 times</p>
+    <button id="button5">click me</button>
+
+    <!--  task6 filter number>5 -->
+    <p id="p6">1 2 4 6 8 9</p>
+    <button id="button6">show numbers>5</button>
+
+    <script>
+      const p1 = document.getElementById("p1");
+      const div1 = document.getElementById("div1");
+      const button2 = document.getElementById("button2");
+      const ul1 = document.getElementById("ul1");
+      const button3 = document.getElementById("button3");
+      const p4 = document.getElementById("p4");
+      const button4 = document.getElementById("button4");
+      const p5 = document.getElementById("p5");
+      const button5 = document.getElementById("button5");
+      const p6 = document.getElementById("p6");
+      const button6 = document.getElementById("button6");
+
+      button2.addEventListener("click", () => {
+        if (div1.style.backgroundColor === "blue") {
+          div1.style.backgroundColor = "red";
+        } else {
+          div1.style.backgroundColor = "blue";
+        }
+      });
+
+      button3.addEventListener("click", () => {
+        const newLi = document.createElement("li");
+        newLi.innerText = "Banana";
+        ul1.appendChild(newLi);
+      });
+
+      button4.addEventListener("click", () => {
+        if (p4.style.display === "none") {
+          p4.style.display = "block";
+        } else {
+          p4.style.display = "none";
+        }
+      });
+
+      let count = 0;
+
+      button5.addEventListener("click", () => {
+        count++;
+        p5.innerText = `clicked ${count} times`;
+      });
+
+      button6.addEventListener("click", () => {
+        const elements = p6.innerText.split("");
+        console.log(elements);
+        const numbers = elements.map(Number);
+        console.log(numbers);
+        const filteredNumbers = numbers.filter((num) => num > 5);
+        console.log(filteredNumbers);
+        p6.innerText = `numbers>5: ${filteredNumbers.join(" ")};`;
+      });
+    </script>
+  </body>
+</html>

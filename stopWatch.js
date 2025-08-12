@@ -1,4 +1,5 @@
 const playButton = document.getElementById("playButton");
+const stopWatch = document.getElementById("stopWatch");
 const add30secButton = document.getElementById("30sec");
 const add1minutButton = document.getElementById("1minut");
 const add5minutButton = document.getElementById("5minut");
@@ -27,15 +28,18 @@ function updateCountdown() {
     isRunning = false;
   }
 }
+let interval = null;
 
 playButton.addEventListener("click", () => {
+  console.log("Play button clicked");
   isRunning = !isRunning;
-  const interval = setInterval(updateCountdown, 1000);
+  playButtonContainer.appendChild(resetButton);
 
   if (isRunning) {
-    playButtonContainer.appendChild(resetButton);
+    interval = setInterval(updateCountdown, 1000);
     playButton.innerHTML = "&#10074;&#10074;"; // Change to pause icon
   } else {
+    console.log("Stopping the stopwatch");
     clearInterval(interval);
     playButton.innerHTML = "&#9654"; // Change to pause icon
   }
