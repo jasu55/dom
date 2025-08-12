@@ -29,6 +29,7 @@
         }
         listData.push(value);
         input.value = "";
+        render();
       }
 
       function render() {
@@ -45,27 +46,23 @@
           p.innerText = element;
           removeBtn.innerText = "x";
 
-          let isEdit = true;
+          let isEdit = false;
+          let editInput = null;
 
           img.addEventListener("click", () => {
-            const a = document.createElement("input");
-            li.appendChild(input);
+            isEdit = !isEdit;
 
             if (isEdit) {
-              a.defaultValue = p.innerText;
-              // p.remove();
+              editInput = document.createElement("input");
+              editInput.value = p.innerText;
+              li.replaceChild(editInput, p);
             } else {
-              const p = document.createElement("p");
-              li.appendChild("p");
-              p.innerText = a.value;
-              console.log(a);
-              // a.remove();
+              listData[index] = editInput.value;
+              p.innerText = editInput.value;
+              li.replaceChild(p, editInput);
+              editInput = null;
+              render();
             }
-
-            isEdit = !isEdit;
-            // li.innerText = "";
-            // li.appendChild(input);
-            // render();
           });
 
           removeBtn.addEventListener("click", () => {
@@ -76,15 +73,14 @@
             render();
           });
           li.appendChild(p);
-          ul.appendChild(li);
           li.appendChild(img);
           li.appendChild(removeBtn);
+          ul.appendChild(li);
         });
       }
 
       button.addEventListener("click", () => {
         printInputValue(input.value);
-        render();
       });
 
       container.appendChild(input);
