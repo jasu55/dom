@@ -34,6 +34,7 @@ button {
 #playButton {
   width: 200px;
   height: 20px;
+  background-color: blue;
 }
 #playButtonContainer {
   display: flex;

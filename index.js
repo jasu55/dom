@@ -41,7 +41,6 @@ button1.addEventListener("click", () => {
 
 const button2 = document.getElementById("button2");
 const ul2 = document.getElementById("ul2");
-body.appendChild(ul2);
 
 button2.addEventListener("click", () => {
   const newLi = document.createElement("li");
@@ -51,6 +50,25 @@ button2.addEventListener("click", () => {
 });
 
 // task3
+
+// const p3 = document.getElementById("p3");
+// const button3 = document.getElementById("button3");
+
+// button3.addEventListener("click", () => {
+//   const elements = p3.innerText.split("");
+//   console.log(elements);
+//   const elToNumbers = elements.map(Number);
+//   console.log(elToNumbers);
+//   const numbers = elToNumbers.filter((el) => {
+//     return !isNaN(el);
+//   });
+//   console.log(numbers);
+//   const sortedNumbers = numbers.sort((a, b) => a - b);
+//   console.log(sortedNumbers);
+//   p3.innerText = `sorted numbers: ${sortedNumbers.join(", ")}`;
+// });
+
+// <!-- task3 sort numbers in array -->
 
 const p3 = document.getElementById("p3");
 const button3 = document.getElementById("button3");
@@ -65,8 +83,8 @@ button3.addEventListener("click", () => {
   });
   console.log(numbers);
   const sortedNumbers = numbers.sort((a, b) => a - b);
-  console.log(sortedNumbers);
-  p3.innerText = `sorted numbers: ${sortedNumbers.join(", ")}`;
+
+  p3.innerText = `numbers:${sortedNumbers.join(", ")}`;
 });
 
 // task4
@@ -209,3 +227,20 @@ selectCar.addEventListener("change", () => {
     ul.appendChild(li);
   });
 });
+
+let startingMinute = 5;
+let time = startingMinute * 60;
+const p = document.createElement("p");
+
+let interval = setInterval(myFunctiona, 1000);
+
+function myFunctiona() {
+  let minute = Math.floor(time / 60);
+  let second = time % 60;
+  if (second < 10) {
+    second += "0";
+  }
+  time--;
+  p.innerText = `${minute}:${second}`;
+  body.appendChild(p);
+}
