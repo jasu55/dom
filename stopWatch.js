@@ -108,3 +108,8 @@ timer.addEventListener("click", () => {
   timer.style.backgroundColor = "rgb(183, 183, 238)";
   containerTime.innerHTML = `${startingMinutes}:00`;
 });
+console.log([[2, 4, 5] + [5, 5, 5]] + "");
+// make Array
+console.log([...[2, 4, 5], ...[5, 5, 5]]);
+
+console.log(([[2, 4, 5] + [5, 5, 5]] + "").split(","));

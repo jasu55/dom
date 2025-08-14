@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>quiz</title>
+  </head>
+  <body>
+    <script>
+      // minii huwilbar
+
+      //   const buttonStart = document.createElement("button");
+      //   const body = document.querySelector("body");
+      //   buttonStart.innerHTML = "Start Quiz";
+      //   body.appendChild(buttonStart);
+      //   let quiz = [
+      //     { question: "What is 2 + 2?", answer: [1, 2, 3, 4], correctAnswer: 4 },
+      //     {
+      //       question: "What is the capital of France?",
+      //       answer: ["Paris", "London", "Berlin", "Madrid"],
+      //       correctAnswer: "Paris",
+      //     },
+      //     {
+      //       question: "What is the largest ocean on Earth?",
+      //       answer: ["Pacific", "Atlantic", "Indian", "Arctic"],
+      //       correctAnswer: "Pacific",
+      //     },
+      //   ];
+      //   let correctAnswer = 0;
+      //   let countQuestion = 1;
+
+      //   function callQuestion() {
+      //     body.innerHTML = ""; // Clear the body content
+      //     const p = document.createElement("p");
+      //     p.innerHTML = countQuestion;
+      //     console.log(p);
+      //     body.appendChild(p);
+      //     const question = document.createElement("h3");
+      //     question.innerHTML = quiz[countQuestion - 1].question;
+      //     body.appendChild(question);
+      //     const answerContainer = document.createElement("div");
+      //     answerContainer.style.display = "flex";
+      //     answerContainer.style.flexDirection = "column";
+      //     body.appendChild(answerContainer);
+
+      //     quiz.forEach((item, index) => {
+      //       if (index === countQuestion - 1) {
+      //         item.answer.forEach((answer) => {
+      //           const buttonAnswer = document.createElement("button");
+      //           buttonAnswer.innerHTML = answer;
+      //           answerContainer.appendChild(buttonAnswer);
+      //           buttonAnswer.addEventListener("click", () => {
+      //             if (answer === item.correctAnswer) {
+      //               correctAnswer++;
+      //             }
+      //             body.innerHTML = "";
+      //             countQuestion++;
+      //             if (countQuestion <= quiz.length) {
+      //               callQuestion();
+      //             } else {
+      //               if (correctAnswer === 0) {
+      //                 alert("noob");
+      //               }
+      //               const result = document.createElement("h2");
+      //               result.innerHTML = `Quiz finished! You got ${correctAnswer} out of ${quiz.length} correct.`;
+      //               body.appendChild(result);
+      //             }
+      //           });
+      //         });
+      //       }
+      //     });
+      //   }
+      //   buttonStart.addEventListener("click", () => {
+      //     callQuestion();
+      //   });
+
+      // bagsh
+
+      const buttonStart = document.createElement("button");
+      const body = document.querySelector("body");
+      buttonStart.innerHTML = "Start Quiz";
+      body.appendChild(buttonStart);
+
+      const quizStart = () => {
+        const question = document.createElement("h3");
+        new Array(4).forEach((el) => {
+          const btn = document.createElement("button");
+          body.appendChild(btn);
+        });
+
+        body.appendChild(question);
+      };
+    </script>
+  </body>
+</html>
